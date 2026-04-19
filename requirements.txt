@@ -1,0 +1,14 @@
+# Core
+pyyaml>=6.0
+
+# LLM providers
+anthropic>=0.40.0           # claude
+google-genai>=0.3.0         # gemini LLM, TTS, image — all in one SDK
+
+# Image post-processing
+pillow>=10.0                # letterbox/resize after image generation
+
+# Only needed if using Ollama with PDFs (local-only path)
+pypdf>=4.0                  # optional
+
+# Everything else (ffmpeg, urllib, smtplib, concurrent.futures) is stdlib or system.

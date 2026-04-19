@@ -1,0 +1,59 @@
+# videomaker defaults. Copy to ~/.videomaker/config.yaml to override.
+# Every value here is optional — omit any key to use the baked default.
+# CLI flags and env vars override these.
+
+# Script length: 3500 words at ~1.45x rate ≈ 15 min narration
+word_count: 3500
+scene_count: 200
+max_words: 5000
+max_scenes: 300
+
+# Which style prefix to apply. See prompts/image_style.md
+image_style: stick_figure_educational
+
+# Video output
+video:
+  width: 1920
+  height: 1080
+  fps: 30
+  codec: libx264
+  audio_codec: aac
+  audio_bitrate: 192k
+  crf: 20                 # lower = higher quality, bigger file. 18-23 is normal.
+  crossfade_ms: 100       # not yet applied between segments; placeholder for v0.2
+
+# Provider choices. See references/providers.md for per-provider details.
+providers:
+  llm: claude             # claude | gemini | ollama
+  tts: gemini             # gemini | ai33pro | elevenlabs | openai | xai
+  image: nanobanana       # nanobanana | dalle | replicate
+
+# TTS tuning
+tts:
+  voice_id: null          # provider default used when null
+  speaking_rate: 1.45     # 1.45x ≈ 233 wpm. Tune for desired runtime.
+  language: en
+
+# Image tuning
+image:
+  width: 1024
+  height: 1024
+  aspect_ratio: "16:9"
+
+# Parallelism — keep low for free tiers to avoid rate limiting
+parallelism:
+  tts_workers: 4
+  image_workers: 4
+
+# Email handoff
+email:
+  from: null              # defaults to SMTP_USER env var
+  subject_template: "[videomaker] {topic} — ready for review"
+
+# Set this persistently or pass --assistant-email at run time
+assistant_email: null
+
+# Advanced: opt-in features
+advanced:
+  strict_split: false     # see references/strict_scene_split.md
+  style_reference_scripts: []   # list of paths to .txt scripts to calibrate voice
