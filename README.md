@@ -103,6 +103,20 @@ videomaker run --topic "..." --dry-run
 
 Writes `script.txt` and `script.json` but skips TTS/image/stitch. Useful for iterating on prompts.
 
+### Tiny MVP proof (10 to 30 seconds)
+
+For fast proof-of-concept work, keep the run tiny: about 3 scenes, short narration, real TTS, real generated images, then stitch to a short MP4. This is the fastest honest demo path when long-form generation is still being tuned.
+
+Recommended MVP shape:
+
+- 10 to 30 second runtime
+- 2 to 3 scenes
+- real AI voiceover
+- 2 to 3 AI-generated images
+- stitched final MP4 for phone review
+
+This proves the core product loop without waiting on a 200-scene long-form run.
+
 ---
 
 ## Cost model (defaults)
